@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header{
+  background-color:#E0E1DD ;
+  padding:20px;
+  text-align:center;
+  font-family: "Tahoma", serif;
+}
+
+.topnav{
+  overflow:hidden;
+  background-color:#0D1B2A ;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #E0E1DD;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Tahoma", serif;
+}
+
+.topnav a:hover {
+  background-color:#778DA9 ; 
+  color:black;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  font-family: "Tahoma", serif;
+}
+
+.column.side {
+  width:25%;
+  font-family: "Tahoma", serif;
+  list-style-type:none;
+  padding:30px;
+}
+
+.column.middle {
+  width:50%;
+  margin-left: -45x;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  margin-left:60px;
+  margin-right:70px;
+}  
+
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+.footer {
+  background-color:#E0E1DD ;
+  padding: 10px;
+  text-align: center;
+  font-family: "Tahoma", serif;
+  font-size:9px;
+  padding:20px;
+}
+
+.game {
+  margin-bottom:0px;
+} 
+
+.sport {
+  margin-bottom:0px;
+}
+
+.music {
+  margin-bottom:0px;
+}  
+
+.horoscope {
+  margine-bottom:0px;
+}
+
+.born {
+  margin-bottom:0px;
+} 
+
+.education {
+  margin-bottom:0px;
+} 
+
+.horoscope {
+  margin-bottom:0px;
+} 
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-instagram {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #778DA9;
+  padding: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Alex Tsang</h1>
+  <p>A little bit about myself!<p>
+</div>
+
+<div class="topnav">
+  <a href="#">Home</a>
+  <a href="A1">Why Coding?</a>
+  <a href="https://open.spotify.com/playlist/6hUKPNgtqfEpVlFUsVJJ8Q?si=Z6e3dW6TRMuDdOxW0NOnGg" target="blank_">Playlist</a>
+  <a href="#">Contact</a>
+</div>
+
+<div class="row">
+  <div class="column side">
+    <h3>About</h3>
+    <img src=https://i.ibb.co/Wc38fy1/Alex-Tsang.jpg" alt="Image of Alex" width="150" height="295">
+    <p class="born"><b>Born</b></p>
+  <li>January 1, 1995</li>
+  <li>Chicago, Illinois</li>  
+  
+  <p class="education"><b>Education</b></p>
+  <li>University of Illinois at Chicago</li>
+  
+  <p class="horoscope"><b>Horoscope</b></p>
+  <li>Capricorn</li> 
+  
+  
+
+
+</div>
+  
+<div class="column middle">
+  <h2>Background</h2>
+  <p>My name is Alex and I grew up in the Chinatown/Bridgeport area of Chicago.  I have two sisters and two dogs.  Growing up I played a lot of basketball because of my father, but besides sports I enjoyed playing video games or anything that had you competing against another person.  Even though Chicago isn't doing too well right now, I am a huge fan of all the Chicago sports teams.  Some of my favorite musical artists right now are Keshi, Drake, Giveon, Jeremy Zucker, Gen Neo, and The Kid Laroi.  
+</p>
+  <h2 id="A1">Why Coding Temple?</h2>
+  <p>Prior to any interest in coding I was working in sales.  I was able to learn a lot from working in that industry, however at the end of the day it wasn't for me.  I had two friends who attended Coding Temple that recommended it to me since I always had an interest in technology.  After seeing the direction the world was headed toward, it seemed like a great idea. My goal is to become a software developer, however that can change since I don't know too deeply about this industry.  However, after doing the precourse work and self studying I found it very fun and interesting to learn and make progress.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>Contact Form</h3>
+
+<div class="container">
+  <form action="#">
+    <label for="fname">Full Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</div>
+
+
+
+
+<div class="column side">
+  <h3>Interests</h3>
+  <p class="game"><b>Games</b></p>
+  <li>League of Legends</li>
+  <li>Valorant</li>
+  <li>Chess</li>
+  
+  <p class="sport"><b>Sports</b></p>
+  <li>Basketball</li>
+  <li>Volleyball</li>
+  <li>Golf</li>
+  
+  <p class="music"><b>Music</b></p>
+  <li>R&B</li>
+  <li>Hip Hop</li>
+  <li>Pop</li>
+  <br>
+  <h4>Follow me!</h>
+  <br>  
+  <a href="https://www.facebook.com/alex.tsang.718/" class="fa fa-facebook" target="_blank"></a>
+  <a href="https://www.instagram.com/alexrt33/" class="fa fa-instagram" target="_blank"></a>
+  <a href="https://twitter.com/Alexrt33" class="fa fa-twitter" target="_blank"></a>
+ 
+  </div>
+  
+</div>
+
+
+
+<div class="footer">
+  <p>| alexrt3@gmail.com | 444.444.4444 | 18 January 2021 |</p>
+</div>
+
+</body>
+</html>
