@@ -82,13 +82,13 @@ class Player:
 done = False
 while not done:
 
-    # initialize the deck --> shuffle the deck -> initialize player and dealer.
+# initialize the deck --> shuffle the deck -> initialize player and dealer.
     cards = Deck()
     cards.shuffle()
     player = Player()
     dealer = Dealer()
 
-    # these two for loops are adding cards into the player and dealers hands.
+# these two for loops are adding cards into the player and dealers hands.
     for x in range(2):
         player.add_card(dealer.deal_card(cards))
 
@@ -113,6 +113,7 @@ while not done:
             print('Invalid Command')
 
     if player.count_cards() > 21:
+        print("Player's hand: {}".format(player.show_hand()))
         print('Bust! Dealer Wins')
         if input("Wanna play again? (y/n)").lower() != 'y':
             break
@@ -133,6 +134,3 @@ while not done:
 
     if input("Wanna play again? (y/n)").lower() != 'y':
         break
-
-
-
