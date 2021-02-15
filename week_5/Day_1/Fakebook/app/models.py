@@ -10,8 +10,8 @@ class User(db.Model):
     last_name = db.Column(db.String)
     email = db.Column(db.String, default=None)
     password = db.Column(db.String)
-    posts = db.Column(db.ForeignKey('post.post_id'))
-    
+    posts = db.relationship('Post', backref='post', lazy=True)
+        
 
     def __init__(self, first_name, last_name, password):
         super().__init__()
@@ -29,7 +29,7 @@ class Post(db.Model):
     body = db.Column(db.Text)
     date_created = db.Column(db.DateTime, nullable=False ,default=dt.utcnow)
     date_updated = db.Column(db.DateTime, nullable=True)
-    user_id = db.relationship('User', backref='user', lazy=True)
+    user_id = db.Column(db.ForeignKey('user.user_id'))
 
     def __repr__(self):
         return f'<Post: ID: {self.post_id} {self.title}>'
