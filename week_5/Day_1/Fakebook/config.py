@@ -1,5 +1,5 @@
 import os 
-from dotenv import load_dotenv
+from dotenv import Dotenv
 
 basedir = os.path.abspath(os.dirname(__name__))
 load_dotenv(os.path.join(basedir, '.env'))
