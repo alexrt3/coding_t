@@ -19,8 +19,7 @@ class User(db.Model):
         self.last_name = last_name
         self.password = password
         self.email = f'{self.first_name}{self.last_name[0]}@codingtemple.com'.lower()
-        post = 
-
+        
     def __repr__(self):
         return f'<User: {self.email}>'
 
