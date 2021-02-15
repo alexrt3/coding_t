@@ -10,7 +10,7 @@ class User(db.Model):
     last_name = db.Column(db.String)
     email = db.Column(db.String, default=None)
     password = db.Column(db.String)
-    posts = db.Column(db.ForeignKey('post.post.id'))
+    posts = db.Column(db.ForeignKey('post.post_id'))
     
 
     def __init__(self, first_name, last_name, password):
