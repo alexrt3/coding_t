@@ -4,7 +4,7 @@ from app import db
 #Flask-SQLAlchemy
 
 class User(db.Model):
-    user_id = db.Column(db.Integer, pimary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String)
     last_name = db.Column(db.String)
     email = db.Column(db.String, default=f'{first_name}{last_name}@codingtemple.com')
