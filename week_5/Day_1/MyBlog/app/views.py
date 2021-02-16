@@ -31,7 +31,6 @@ def register():
         res= request.form
         if res['confirm_password'] == res['password']:
             u = User(first_name=res['first_name'], last_name=res['last_name'], password=res['password'])
-            db.session.add(u)
-            db.session.commit()
+            u.save()
         return redirect(url_for('login'))
     return render_template('register.html')

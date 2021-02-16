@@ -24,6 +24,11 @@ class User(db.Model):
     def verify_password_hash(self):
         return check_password_hash(password)
 
+    def save(self):
+        self.create_password_hash(self.password)
+        db.session.add(self)
+        db.session.commit()
+
     def __repr__(self):
         return f'<User: {self.email}>'
 
