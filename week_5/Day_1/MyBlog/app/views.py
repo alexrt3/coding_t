@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, request
 from app.models import User, Post
 
 
@@ -25,6 +25,9 @@ def explore():
 def login():
     return render_template('login.html')
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'Post'])
 def register():
+    if request.method == 'Post':
+        res= request.form
+        print(res)
     return render_template('register.html')
