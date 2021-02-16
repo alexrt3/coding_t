@@ -1,12 +1,13 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for
 from app.models import User, Post
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user
 
 
 @app.route('/')
 def home():
     context = {
+        'user': current_user,
         'posts': Post.query.order_by(Post.date_created.desc()).all()
     }
     return render_template('home.html', **context)
@@ -44,3 +45,8 @@ def register():
             u.save()
         return redirect(url_for('login'))
     return render_template('register.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('login'))

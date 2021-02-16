@@ -1,7 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <h3>Home</h3>
+    <h3>
+        Home
+        {% if current_user.is_authenticated %}
+            <span class="float-right">Hello, {{ user.first_name }}!</span>
+        {% else %}
+            <span class="float-right">Good day!</span>
+        {% endif %}
+    </h3>
     <hr>
     <ul class="list-group">
         {% for p in posts %}
