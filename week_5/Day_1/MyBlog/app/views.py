@@ -27,7 +27,7 @@ def login():
 
 @app.route('/register', methods=['GET', 'Post'])
 def register():
-    if request.method == 'Post':
+    if request.method == 'POST':
         res= request.form
         print(res)
     return render_template('register.html')
