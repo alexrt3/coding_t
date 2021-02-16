@@ -1,9 +1,13 @@
-from app import app
+from app import app, data
 from flask import render_template
+
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    context = {
+        'posts': data.posts
+    }
+    return render_template('home.html', **context)
 
 @app.route('/profile')
 def profile():
