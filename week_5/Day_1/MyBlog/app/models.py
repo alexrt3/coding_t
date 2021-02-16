@@ -18,7 +18,7 @@ class User(db.Model):
         self.password = password
         self.email = f'{self.first_name}{self.last_name[0]}@codingtemple.com'.lower()
 
-    def create_password_has(self, password):
+    def create_password_hash(self, password):
         self.password = generate_password_hash(password)
 
     def verify_password_hash(self):
