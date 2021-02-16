@@ -1,12 +1,12 @@
-from app import app, data
-from flask import render_template
+from app import app
+from flask import render_template, Post
 from app.models import User
 
 
 @app.route('/')
 def index():
     context = {
-        'posts': data.posts
+        'posts': Post.query.all()
     }
     return render_template('home.html', **context)
 
