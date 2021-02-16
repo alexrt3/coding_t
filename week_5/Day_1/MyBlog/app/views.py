@@ -6,7 +6,7 @@ from app.models import User, Post
 @app.route('/')
 def home():
     context = {
-        'posts': Post.query.all()
+        'posts': Post.query.order_by(Post.date_created.desc()).all()
     }
     return render_template('home.html', **context)
 
