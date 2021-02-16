@@ -1,5 +1,5 @@
-from app import app
-from flask import render_template, request
+from app import app, db
+from flask import render_template, request, redirect, url_for
 from app.models import User, Post
 
 
@@ -29,5 +29,9 @@ def login():
 def register():
     if request.method == 'POST':
         res= request.form
-        print(res)
+        if res['confirm_password'] == res['password']:
+            u = User(first_name=res['first_name'], last_name=res['last_name'], password=res['password'])
+            db.session.add(u)
+            db.session.commit()
+        return redirect(url_for('login'))
     return render_template('register.html')
