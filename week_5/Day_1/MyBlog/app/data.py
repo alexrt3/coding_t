@@ -1,4 +1,4 @@
-post = [
+posts = [
     {
         'id':1,
         'title': 'First Post',
