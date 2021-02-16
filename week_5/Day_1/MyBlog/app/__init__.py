@@ -23,6 +23,8 @@ def create_app(config_class=Config):
     from app.blueprints.auth import bp as auth_bp
     app.register_blueprint(auth_bp)
 
-    from app import views
+    # Needs app context
+    with app.app_context()
+        from app import views
 
     return app
