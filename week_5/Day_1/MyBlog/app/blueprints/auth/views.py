@@ -1,4 +1,4 @@
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, render_template
 from app.blueprints.auth.models import User
 from flask_login import login_user, logout_user
 from app.blueprints.auth import bp as auth_bp
@@ -23,10 +23,10 @@ def register():
         if res['confirm_password'] == res['password']:
             u = User(first_name=res['first_name'], last_name=res['last_name'], password=res['password'])
             u.save()
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
     return render_template('register.html')
 
 @auth_bp.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('auth.login'))
