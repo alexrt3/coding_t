@@ -1,5 +1,6 @@
 from app import db
 from datetime import datetime as dt
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
@@ -16,6 +17,12 @@ class User(db.Model):
         self.last_name = last_name
         self.password = password
         self.email = f'{self.first_name}{self.last_name[0]}@codingtemple.com'.lower()
+
+    def create_password_has(self, password):
+        self.password = generate_password_hash(password)
+
+    def verify_password_hash(self):
+        return check_password_hash(password)
 
     def __repr__(self):
         return f'<User: {self.email}>'
