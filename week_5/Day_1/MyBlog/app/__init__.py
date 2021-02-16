@@ -6,12 +6,23 @@ from config import Config
 from flask_login import LoginManager
 
 
-app = Flask(__name__)
-app.config.from_object(Config)
+db = SQLAlchemy()
+migrate = Migrate()
+moment = Moment()
+login_manager = LoginManager()
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-moment = Moment(app)
-login_manager = LoginManager(app)
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
 
-from app import views
+    db.init_app(app)
+    migrate.init_app(app, db)
+    moment.init_app(app)
+    login_manager.init_app(app)
+    
+    from app.blueprints.auth import bp as auth_bp
+    app.register_blueprint(auth_bp)
+
+    from app import views
+
+    return app
