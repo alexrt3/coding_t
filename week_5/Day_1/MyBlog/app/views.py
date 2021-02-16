@@ -1,6 +1,7 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for
 from app.models import User, Post
+from flask_login import login_user
 
 
 @app.route('/')
@@ -21,8 +22,17 @@ def explore():
     }
     return render_template('explore.html', **context)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        form_email = request.form['email']
+        form_password = request.form['password']
+
+        user = User.query.filter_by(email=form_email).first()
+        if user is None:
+            return redirect(url_for('login'))
+        login_user(user)
+        return redirect(url_for('home'))
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'Post'])
