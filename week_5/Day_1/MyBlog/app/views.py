@@ -1,5 +1,6 @@
 from app import app, data
 from flask import render_template
+from app.models import User
 
 
 @app.route('/')
@@ -15,7 +16,10 @@ def profile():
 
 @app.route('/explore')
 def explore():
-    return render_template('explore.html')
+    context = {
+        'users': User.query.all()
+    }
+    return render_template('explore.html', **context)
 
 @app.route('/login')
 def login():
